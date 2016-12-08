@@ -2,13 +2,13 @@ package adventofcode.day1;
 
 import java.util.Objects;
 
-public final class Day1Instruction {
+public final class Movement2DInstruction {
 	
 	private final char orientation;
 	
 	private final int count;
 	
-	public Day1Instruction(char orientation, int count) {
+	public Movement2DInstruction(char orientation, int count) {
 		this.orientation = orientation;
 		this.count = count;
 	}
@@ -31,11 +31,11 @@ public final class Day1Instruction {
 		return Objects.hash(orientation, count);
 	}
 	
-	public static Day1Instruction parseInstruction(String instruction) {
+	public static Movement2DInstruction parseInstruction(String instruction) {
 		char orientation = instruction.charAt(0);
 		int count = Integer.parseInt(instruction.substring(1, instruction.length()));
 		
-		return new Day1Instruction(orientation, count);
+		return new Movement2DInstruction(orientation, count);
 	}
 	
 }

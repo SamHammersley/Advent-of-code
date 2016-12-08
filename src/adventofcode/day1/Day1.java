@@ -12,12 +12,12 @@ import adventofcode.InstructionSet;
 import adventofcode.movement.Direction;
 import adventofcode.movement.Point2D;
 
-public final class Day1 extends Challenge<Day1Instruction> {
+public final class Day1 extends Challenge<Movement2DInstruction> {
 	
 	private static final Point2D INITIAL = new Point2D(0, 0);
 
 	public Day1() {
-		super(new InstructionSet<>(", ", "(L|R)(\\d+)", Day1Instruction::parseInstruction));
+		super(new InstructionSet<>(", ", "(L|R)(\\d+)", Movement2DInstruction::parseInstruction));
 	}
 	
 	@Override
@@ -35,7 +35,7 @@ public final class Day1 extends Challenge<Day1Instruction> {
 		
 		Direction direction = Direction.NORTH;
 		
-		for (Day1Instruction instruction : instructionSet) {
+		for (Movement2DInstruction instruction : instructionSet) {
 			direction = direction.rotate(instruction.getOrientation());
 			current = current.move(direction, instruction.getCount());
 		}
@@ -54,7 +54,7 @@ public final class Day1 extends Challenge<Day1Instruction> {
 		
 		Direction direction = Direction.NORTH;
 		
-		for (Day1Instruction instruction : instructionSet) {
+		for (Movement2DInstruction instruction : instructionSet) {
 			direction = direction.rotate(instruction.getOrientation());
 			
 			for (int step = 0; step < instruction.getCount(); step++) {
